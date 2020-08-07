@@ -103,8 +103,12 @@
 </ul>
 <p><img alt="Screenshot" src="https://raw.github.com/mbraak/django-mptt-admin/master/screenshot.png" /></p>
 <h2 id="requirements">Requirements</h2>
-<p>The package is tested with Django (2.0 - 3.0), and django-mptt (0.9 and 0.10). Also with Python 3.5 - 3.8.</p>
-<p>Note that version 0.7.2 also supports Django 1.11 and Python 2.7.</p>
+<p>The package is tested with Django (2.2 - 3.1), and django-mptt (0.11). Also with Python 3.6 - 3.8.</p>
+<p>Older versions:</p>
+<ul>
+<li>Version 1.0.x supports Django 2.0 and 2.1.</li>
+<li>Version 0.7.2 supports Django 1.11 and Python 2.7.</li>
+</ul>
 <h2 id="installation">Installation</h2>
 <p>Install the package:</p>
 <pre><code>$ pip install django-mptt-admin
@@ -153,8 +157,13 @@
 </code></pre>
 
 <p><strong>use_context_menu</strong></p>
-<p>True / False. Default is False.</p>
-<p>"useContextMenu" option for tree.</p>
+<p>Capture the contextmenu event. NB: the contextmenu event is triggered when you click with the right mouse button.</p>
+<ul>
+<li>True: Capture the contextmenu event.</li>
+<li>This is useful if you want to write custom javascript to catch the <code>tree.contextmenu</code> event.</li>
+<li>Also see https://mbraak.github.io/jqTree/#usecontextmenu and https://mbraak.github.io/jqTree/#event-tree-contextmenu</li>
+<li>False (default): do not capture the contextmenu event.</li>
+</ul>
 <p><strong>item_label_field_name</strong></p>
 <p>Define which field of the model should be the label for tree items.</p>
 <p>Possible values are:
@@ -443,5 +452,5 @@ class CountryAdmin(DjangoMpttAdmin):
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-06-26 09:31:57.007419+00:00
+Build Date UTC : 2020-08-07 12:39:11.185369+00:00
 -->
