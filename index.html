@@ -113,16 +113,14 @@
 <p>Install the package:</p>
 <pre><code>$ pip install django-mptt-admin
 </code></pre>
-
 <p>Add <strong>django_mptt_admin</strong> to your installed apps in <strong>settings.py</strong>.</p>
-<pre><code class="python">  INSTALLED_APPS = (
+<pre><code class="language-python">  INSTALLED_APPS = (
       ..
       'django_mptt_admin',
   )
 </code></pre>
-
 <p>Use the DjangoMpttAdmin class in admin.py:</p>
-<pre><code class="python">    from django.contrib import admin
+<pre><code class="language-python">    from django.contrib import admin
     from django_mptt_admin.admin import DjangoMpttAdmin
     from models import Country
 
@@ -131,8 +129,9 @@
 
     admin.site.register(Country, CountryAdmin)
 </code></pre>
-
 <h2 id="options">Options</h2>
+<p><strong>tree_animation_speed</strong></p>
+<p>The speed of the open/close animation in milliseconds. The default is 200 milliseconds.</p>
 <p><strong>tree_auto_open</strong></p>
 <p>Auto-open node. Default value is 1.</p>
 <p>Values:
@@ -151,11 +150,10 @@
 <p>Autoescape titles in tree.</p>
 <p><strong>filter_tree_queryset</strong></p>
 <p>Override the <strong>filter_tree_queryset</strong> method to filter the queyset for the tree.</p>
-<pre><code class="python">class CountryAdmin(DjangoMpttAdmin):
+<pre><code class="language-python">class CountryAdmin(DjangoMpttAdmin):
   def filter_tree_queryset(self, queryset):
     return queryset.filter(name='abc')
 </code></pre>
-
 <p><strong>use_context_menu</strong></p>
 <p>Capture the contextmenu event. NB: the contextmenu event is triggered when you click with the right mouse button.</p>
 <ul>
@@ -180,17 +178,24 @@
 class MyMpttModelAdminClass(MPTTModelAdmin):
     item_label_field_name = 'title_for_admin'
 </code></pre>
-
 <h2 id="filters">Filters</h2>
 <p>If you want to use filters, then you can set the <code>list_filter</code> option. See the <a href="https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter">Django docs</a>.</p>
-<pre><code class="python">from django_mptt_admin.admin import DjangoMpttAdmin
+<pre><code class="language-python">from django_mptt_admin.admin import DjangoMpttAdmin
 
 class CountryAdmin(DjangoMpttAdmin):
     list_filter = ('continent',)
 </code></pre>
-
 <p>Also see the example project for a complete continent filter.</p>
 <h2 id="changelog">Changelog</h2>
+<p><strong>2.0.1</strong> (october 26 2020)</p>
+<ul>
+<li>Issue #309: add option for animation speed</li>
+<li>Issue #325: update jqtree to 1.5.2</li>
+</ul>
+<p><strong>2.0.0</strong> (august 7 2020)</p>
+<ul>
+<li>Support Django 3.1</li>
+</ul>
 <p><strong>1.0.2</strong> (june 26 2020)</p>
 <ul>
 <li>Issue #287: add Catalan and Spanish translations (thanks to Joan Marc Soler)</li>
@@ -452,5 +457,5 @@ class CountryAdmin(DjangoMpttAdmin):
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-08-07 12:39:11.185369+00:00
+Build Date UTC : 2020-10-26 11:05:16.726720+00:00
 -->
